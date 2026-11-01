@@ -1,0 +1,493 @@
+
+/* ========================================
+   SentinelAI SOC Assistant
+   Main stylesheet
+   ======================================== */
+
+/* 1. Theme variables */
+
+:root {
+    --bg: #0b1120;
+    --sidebar-bg: #080e1c;
+    --panel: #111a2d;
+    --panel-alt: #0d1628;
+
+    --line: #26334a;
+    --line-soft: #202b40;
+
+    --text: #e8eef8;
+    --muted: #91a0b8;
+
+    --blue: #60a5fa;
+    --red: #fb7185;
+    --amber: #fbbf24;
+    --green: #34d399;
+
+    --radius: 12px;
+}
+
+/* 2. Reset and base styles */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, "Segoe UI", sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+button {
+    font: inherit;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h2 {
+    margin-bottom: 0;
+    font-size: 15px;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* 3. Main layout */
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.side {
+    flex: 0 0 220px;
+    padding: 24px 16px;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--line);
+}
+
+main {
+    width: 100%;
+    min-width: 0;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 26px;
+}
+
+/* 4. Sidebar */
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: var(--blue);
+}
+
+.sidebar-subtitle {
+    margin-bottom: 24px;
+    font-size: 11px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav {
+    display: block;
+    padding: 10px;
+    border-radius: 8px;
+    color: #b9c5d8;
+    text-decoration: none;
+    transition: background 0.15s ease;
+}
+
+.nav:hover,
+.nav.active {
+    background: #172642;
+}
+
+.note {
+    margin-top: 30px;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.note strong {
+    color: var(--text);
+}
+
+.note p {
+    margin: 8px 0 0;
+}
+
+/* 5. Dashboard header */
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.eyebrow {
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.top h1 {
+    margin: 4px 0;
+    font-size: 27px;
+}
+
+.top p {
+    margin-bottom: 0;
+}
+
+.status {
+    padding: 7px 11px;
+    border: 1px solid #285b4d;
+    border-radius: 20px;
+    background: #102c29;
+    color: var(--green);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* Status variants for JavaScript */
+
+.status.error {
+    border-color: #713044;
+    background: #351725;
+    color: var(--red);
+}
+
+.status.warning {
+    border-color: #6b5521;
+    background: #352c16;
+    color: var(--amber);
+}
+
+/* 6. Summary cards */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 13px;
+    margin-bottom: 16px;
+}
+
+.card {
+    min-width: 0;
+    padding: 17px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--panel);
+}
+
+.label {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.metric {
+    margin: 7px 0;
+    font-size: 29px;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+}
+
+.metric.danger {
+    color: var(--red);
+}
+
+/* 7. Section headers and content */
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.head h2 {
+    margin-bottom: 3px;
+}
+
+.head p {
+    margin-bottom: 0;
+}
+
+/* 8. Buttons */
+
+.btn {
+    padding: 9px 12px;
+    border: 1px solid #31517c;
+    border-radius: 8px;
+    background: #17335a;
+    color: #e6f2ff;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.btn:hover {
+    background: #214675;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* 9. Alert table */
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 9px 6px;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    text-align: left;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+td {
+    padding: 12px 6px;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+tbody tr {
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+tbody tr:hover {
+    background: #17243b;
+}
+
+tbody tr.selected {
+    background: #1a2c49;
+}
+
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+/* 10. Severity badges */
+
+.pill {
+    display: inline-block;
+    padding: 4px 7px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.critical {
+    background: #4a1726;
+    color: #fecdd3;
+}
+
+.high {
+    background: #4a2b13;
+    color: #fed7aa;
+}
+
+.medium {
+    background: #423716;
+    color: #fde68a;
+}
+
+.low {
+    background: #103b31;
+    color: #a7f3d0;
+}
+
+/* 11. Selected alert details */
+
+.details-card {
+    margin-top: 15px;
+}
+
+#selected-alert {
+    color: var(--text);
+    overflow-wrap: anywhere;
+}
+
+.alert-detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line-soft);
+}
+
+.alert-detail-row:last-child {
+    border-bottom: 0;
+}
+
+.alert-detail-label {
+    flex: 0 0 130px;
+    color: var(--muted);
+}
+
+.alert-detail-value {
+    min-width: 0;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* 12. Data source section */
+
+.sources-card {
+    margin-top: 15px;
+}
+
+.sourcegrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.source {
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    background: var(--panel-alt);
+}
+
+.source p {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* 13. Footer */
+
+footer {
+    padding: 20px;
+    color: #71809a;
+    font-size: 11px;
+    text-align: center;
+}
+
+/* 14. Responsive layout */
+
+@media (max-width: 950px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 620px) {
+    .layout {
+        display: block;
+    }
+
+    .side {
+        padding: 12px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .note {
+        display: none;
+    }
+
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .nav {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    main {
+        padding: 14px 10px;
+    }
+
+    .top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .grid {
+        gap: 8px;
+    }
+
+    .card {
+        padding: 12px;
+    }
+
+    .metric {
+        font-size: 24px;
+    }
+
+    .sourcegrid {
+        grid-template-columns: 1fr;
+    }
+
+    .alert-detail-row {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .alert-detail-label {
+        flex-basis: auto;
+    }
+
+    .alert-detail-value {
+        text-align: left;
+    }
+}

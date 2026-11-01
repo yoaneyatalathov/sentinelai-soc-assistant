@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SentinelAI — SOC Assistant</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/styles.css') }}"
+    >
+</head>
+
+<body>
+    <div class="layout">
+
+        <!-- Sidebar -->
+        <aside class="side">
+            <div class="logo">Sentinel<span>AI</span></div>
+
+            <p class="muted sidebar-subtitle">
+                SOC ASSISTANT · MVP
+            </p>
+
+            <nav>
+                <a class="nav active" href="#overview">Overview</a>
+                <a class="nav" href="#alerts">Security Alerts</a>
+                <a class="nav" href="#sources">Data Sources</a>
+            </nav>
+
+            <div class="note">
+                <strong>Security Monitoring</strong>
+                <p>Monitoring alert dari Wazuh.</p>
+            </div>
+        </aside>
+
+        <!-- Main dashboard -->
+        <main id="overview">
+
+            <header class="top">
+                <div>
+                    <div class="eyebrow">SECURITY OPERATIONS</div>
+                    <h1>SOC Dashboard</h1>
+                    <p class="muted">
+                        Monitoring alert keamanan dari endpoint.
+                    </p>
+                </div>
+
+                <div class="status" id="connection-status">
+                    Connecting to Wazuh API...
+                </div>
+            </header>
+
+            <!-- Summary metrics -->
+            <section class="grid">
+
+                <article class="card">
+                    <div class="label">Total Alerts</div>
+                    <div class="metric" id="total-alerts">0</div>
+                </article>
+
+                <article class="card">
+                    <div class="label">High / Critical</div>
+                    <div class="metric danger" id="high-alerts">0</div>
+                </article>
+
+                <article class="card">
+                    <div class="label">Hosts Monitored</div>
+                    <div class="metric" id="total-hosts">0</div>
+                </article>
+
+                <article class="card">
+                    <div class="label">API Status</div>
+                    <div class="metric" id="api-status">—</div>
+                </article>
+
+            </section>
+
+            <!-- Alert table -->
+            <section class="card" id="alerts">
+
+                <div class="head">
+                    <div>
+                        <h2>Security Alerts</h2>
+                        <p class="small">
+                            Pilih alert untuk melihat detail.
+                        </p>
+                    </div>
+
+                    <button class="btn" id="refresh-button">
+                        Refresh
+                    </button>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Severity</th>
+                                <th>Alert Description</th>
+                                <th>Agent</th>
+                                <th>Timestamp</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="alert-rows">
+                            <tr>
+                                <td colspan="4">Memuat alert...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
+            <!-- Selected alert details -->
+            <section class="card details-card" id="alert-details">
+                <div class="head">
+                    <div>
+                        <h2>Alert Details</h2>
+                        <p class="small">
+                            Detail alert yang dipilih.
+                        </p>
+                    </div>
+                </div>
+
+                <div id="selected-alert">
+                    Pilih alert dari tabel untuk melihat detail.
+                </div>
+            </section>
+
+            <!-- Data source status -->
+            <section class="card sources-card" id="sources">
+                <h2>Data Sources</h2>
+
+                <div class="sourcegrid">
+                    <div class="source">
+                        <strong>Wazuh Manager</strong>
+                        <p id="wazuh-status">Checking connection...</p>
+                    </div>
+
+                    <div class="source">
+                        <strong>Alert API</strong>
+                        <p id="source-api-status">Waiting for response...</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                SentinelAI SOC Assistant · Local Security Lab
+            </footer>
+
+        </main>
+    </div>
+
+    <script
+        src="{{ url_for('static', filename='js/api.js') }}"
+        defer
+    ></script>
+
+    <script
+        src="{{ url_for('static', filename='js/dashboard.js') }}"
+        defer
+    ></script>
+
+    <script
+        src="{{ url_for('static', filename='js/app.js') }}"
+        defer
+    ></script>
+</body>
+</html>

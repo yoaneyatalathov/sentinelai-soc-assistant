@@ -1,0 +1,43 @@
+
+[
+  {
+    "timestamp": "2026-10-25T09:11:18.385+0700",
+    "rule": {
+      "id": "61017",
+      "level": 9,
+      "description": "The process was terminated due to an unhandled exception."
+    },
+    "agent": {
+      "id": "001",
+      "name": "WINDOWS-ENDPOINT",
+      "ip": "192.168.60.1"
+    },
+    "data": {
+      "srcip": "192.168.60.1",
+      "win": {
+        "system": {
+          "eventID": "1026",
+          "providerName": ".NET Runtime"
+        }
+      }
+    },
+    "location": "EventChannel"
+  },
+  {
+    "timestamp": "2026-10-25T09:15:00.000+0700",
+    "rule": {
+      "id": "100002",
+      "level": 12,
+      "description": "Multiple failed login attempts detected."
+    },
+    "agent": {
+      "id": "001",
+      "name": "WINDOWS-ENDPOINT",
+      "ip": "192.168.60.1"
+    },
+    "data": {
+      "srcip": "192.168.60.1"
+    },
+    "location": "Security"
+  }
+]
